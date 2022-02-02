@@ -1,4 +1,6 @@
-body h3 h1 {
+/* THIS IS THE ONE I'M REWORKING */
+
+body h3 h1 header {
   margin: 0;
 }
 
@@ -13,20 +15,29 @@ body {
 
 .nav-list {
   list-style: none;
-  padding: 0px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
 }
 
-li {
-  margin: 10px 0px;
+li a {
+  margin-bottom: 10px;
   color: #69696a;
+  text-decoration: none;
+  display: flex;
 }
 
-.accent {
+/* I could have just reused this tag instead of renaming and copying */
+/* I could have used display:block to stretch the background across the page */
+.accent a {
   color: #fff;
   background-color: #000;
-  text-align: center;
   border-radius: 30px;
   padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .lorem-text {
@@ -49,11 +60,14 @@ h1 {
   margin-bottom: 100px;
 }
 
+/* flex-direction: row was redundant. I should have used align-items:center */
+/* justify-content:space between would have spaced the elements apart */
 footer {
   position: fixed;
   bottom: 0px;
   display: flex;
   flex-direction: row;
+  align-items: center;
   background-color: rgba(247, 193, 162, 0.7);
   width: 100%;
 }
@@ -76,4 +90,62 @@ footer {
   margin: 0px 10px;
   text-decoration: none;
   color: #69696a;
+}
+
+@media only screen and (min-width: 768px) {
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 60px;
+  }
+  .nav-list {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+  }
+
+  li a {
+    margin: 10px;
+  }
+
+  main {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .text-section {
+    width: 50%;
+  }
+
+  .large-circle {
+    border: 1px solid rgba(247, 136, 167, 0.6);
+    width: 150px;
+    height: 150px;
+    background-color: rgba(247, 136, 167, 0.6);
+    border-radius: 100%;
+    position: absolute;
+    right: 90px;
+  }
+
+  .medium-circle {
+    border: 1px solid rgba(247, 193, 162, 0.7);
+    width: 125px;
+    height: 125px;
+    background-color: rgba(247, 193, 162, 0.7);
+    border-radius: 100%;
+    position: relative;
+    top: 75px;
+  }
+
+  .small-circle {
+    border: 1px solid rgba(207, 130, 213, 0.6);
+    width: 100px;
+    height: 100px;
+    background-color: rgba(207, 130, 213, 0.6);
+    border-radius: 100%;
+    position: relative;
+    right: -10px;
+    bottom: 110px;
+  }
 }
